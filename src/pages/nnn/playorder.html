@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>陪玩下单页</title>
+</head>
+<body style="background-color: rgba(201, 201, 201, 1);">
+<div id="app">
+    <!--头部导航-->
+    <head-nav></head-nav>
+
+    <!--content-->
+    <div class="content-order clear_fix">
+        <p>订单信息</p>
+        <!--订单主体-->
+        <div class="inner-order">
+            <!--订单总览-->
+            <div style="background-color: #eee;" class="clear_fix grid-w20_cell">
+                <div class="f_left">
+                    <div style="width: 80px;height: 80px;background-color: #fff;" class="f_left">
+                        <img style="width: 80px;height: 80px;" src="./images/index/uploads.png" alt="">
+                    </div>
+                    <div class="f_left mar_t10 mar_l10">
+                        <p>吃货一枚的熊</p>
+                        <p class="mar_t10">陪玩类型：<span>英雄联盟</span></p>
+                    </div>
+                </div>
+                <div class="f_right text_center mar_t10">
+                    <!--单价-->
+                    <div class="f_left">
+                        <p>单价</p>
+                        <p class="mar_t10">￥<span>69</span>/小时</p>
+                    </div>
+                    <!--单数-->
+                    <div class="f_left" style="margin: 0 80px;">
+                        <p>单数</p>
+                        <div class="mar_t5">
+                            <el-input-number v-model="orderNum" @change="addOrder" size="small" :step="1" :min="1" :max="10" label="描述文字"></el-input-number>
+                        </div>
+                    </div>
+                    <!--总价-->
+                    <div class="f_left">
+                        <p>总价</p>
+                        <p class="mar_t10">￥<span>69</span></p>
+                    </div>
+                </div>
+            </div>
+            <el-form :inline="true" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="54px" :hide-required-asterisk="true" class="order-ruleForm">
+                <!--联系方式-->
+                <div class="mar_t40">
+                    <p><span>联系方式</span><span>方便主播联系你，进行陪玩服务</span></p>
+                    <div class="mar_t15">
+                        <el-form-item label="手机：" prop="telphone">
+                            <el-input v-model="ruleForm.telphone"></el-input>
+                        </el-form-item>
+                        <el-form-item label="QQ：" prop="QQ">
+                            <el-input v-model="ruleForm.QQ"></el-input>
+                        </el-form-item>
+                    </div>
+                </div>
+                <!--留言区-->
+                <div class="mar_t40">
+                    <el-form-item label="留言：" label-width="100%" prop="giveComment" class="give-comment_area">
+                        <el-input
+                            type="textarea"
+                            :autosize="{ minRows: 8, maxRows: 10}"
+                            placeholder="可以在此给陪玩主播留言说明特殊事项或对订单进行备注（选填）"
+                            v-model="ruleForm.giveComment">
+                        </el-input>
+                    </el-form-item>
+                </div>
+            </el-form>
+            <!--优惠券区-->
+            <div class="mar_t20">
+                <div class="clear_fix" style="width: 50%;">
+                    <p class="f_left"><span>优惠券</span>共抵用 <span>400.00</span>元：使用优惠券 <span>1</span>张</p>
+                    <a class="f_right">查看更多</a>
+                </div>
+                <!--优惠券-->
+                <div class="coupons">
+
+                </div>
+            </div>
+        </div>
+        <!--订单结尾-->
+        <div style="text-align: right;" class="mar_t40">
+            <p>实付金额：￥<span>64</span></p>
+            <p class="mar_t10">已优惠￥<span>5</span></p>
+            <el-button type="primary" @click="submitForm('ruleForm')">提交订单</el-button>
+        </div>
+    </div>
+
+    <!--底部导航-->
+    <foot-nav></foot-nav>
+</div>
+</body>
+</html>

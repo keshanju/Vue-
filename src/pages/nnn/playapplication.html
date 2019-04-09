@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>陪玩申请</title>
+</head>
+<body style="background-color: rgba(201, 201, 201, 1);">
+<div id="app">
+    <!--头部导航-->
+    <head-nav></head-nav>
+
+    <div class="content-play">
+        <!--banner展示-->
+        <div class="banner-application">
+            <p>已有 <span>123434</span>人加入3N平台成为陪玩，新的篇章从这里起航 <br>“你将会是下一个月薪过万的陪玩师”</p>
+        </div>
+        <!--申请流程流程图-->
+        <div class="mar_t20">
+            <el-steps :active="2" align-center>
+                <el-step title="第一步：基本信息"></el-step>
+                <el-step title="第二步：服务信息"></el-step>
+                <el-step title="第三步：申请成功"></el-step>
+            </el-steps>
+        </div>
+        <!--申请所需信息-->
+        <el-form :inline="true" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <p>温馨提示：<span>请务必填写真实资料。标 “ * ” 的为必填项</span></p>
+            <el-form-item label="昵称：" prop="name">
+                <el-input v-model="ruleForm.name"></el-input>
+            </el-form-item>
+            <el-form-item label="所在城市：" prop="province">
+                <el-select size="small" v-model="ruleForm.province" filterable placeholder="选择省市/直辖市/自治区">
+                    <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item prop="municipality">
+                <el-select size="small" v-model="ruleForm.municipality" filterable placeholder="选择市/区">
+                    <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item prop="county">
+                <el-select size="small" v-model="ruleForm.county" filterable placeholder="选择区/县">
+                    <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="出生日期：" prop="birthday">
+                <el-date-picker
+                        v-model="ruleForm.birthday"
+                        type="date"
+                        placeholder="选择日期">
+                </el-date-picker>
+            </el-form-item>
+            <el-form-item label="联系手机：" prop="telphone">
+                <el-input v-model="ruleForm.telphone"></el-input>
+            </el-form-item>
+            <el-form-item label="QQ：" prop="qq">
+                <el-input v-model="ruleForm.qq"></el-input>
+            </el-form-item>
+            <el-form-item label="个性标签：" prop="personalityLabel" class="personality-label">
+                <el-checkbox-group 
+                    v-model="ruleForm.personalityLabel"
+                    :max="3">
+                    <el-checkbox v-for="personalityLabel in personalityLabels" :label="personalityLabel" :key="personalityLabel">{{personalityLabel}}</el-checkbox>
+                </el-checkbox-group>
+                <p class="mar_t10">最多可选择3个标签（{{ruleForm.personalityLabel.length}}/3）</p>
+            </el-form-item>
+            <el-form-item label="兴趣爱好：" prop="interests" class="interest-input">
+                <el-input v-model="ruleForm.interests"></el-input>
+            </el-form-item>
+            <el-form-item label="形象照：" prop="photographs" class="beauty-photo">
+                <div class="photo-upload_left" :class="{ 'hidden-add_photo': hasSelectedPhotos == 6 }">
+                    <el-upload class="f_left" action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :limit="6" accept="image/jpeg,image/gif,image/png,image/bmp" :on-preview="handlePictureCardPreview" :on-change="handleChange" :on-remove="handleRemove">
+                        <i class="el-icon-plus"></i>
+                    </el-upload>
+                </div>
+                <div class="photo-upload_right" :style="{ 'margin-top': (hasSelectedPhotos > 1 ? '26px' : '38px') }">
+                    最多还可上传{{surplusPhotoNumber}}张。第一张为封面照。支持支持jpg、gif、png、或bmp格式的图片，照片小于3M。
+                </div>
+            </el-form-item>
+            <el-form-item label="提现账号：" prop="cashAccount" class="cash-account">
+                <el-input v-model="ruleForm.cashAccount" placeholder="用于收益的提现，提现账户的实名信息请与填写的实名信息保持一致"></el-input>
+            </el-form-item>
+            <el-form-item label="邀请码：" prop="invitationCode" class="invitation-code">
+                <el-input v-model="ruleForm.cashAccount" placeholder="输入邀请码可享受提现见面手续费（非必填）"></el-input>
+            </el-form-item>
+            <el-form-item class="next-step_btn">
+                <el-button type="primary" @click="submitForm('ruleForm')">下一步</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+
+    <!--底部导航-->
+    <foot-nav></foot-nav>
+</div>
+</body>
+</html>

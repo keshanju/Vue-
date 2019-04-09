@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的钱包</title>
+</head>
+<body>
+    <div id="app">
+        <!--头部导航-->
+        <head-nav></head-nav>
+
+        <!--main content-->
+        <div class="user-content_wrap">
+            <div class="user-content">
+                <!--面包屑导航-->
+                <div class="pad_v15">
+                    <el-breadcrumb separator-class="el-icon-arrow-right">
+                        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                        <el-breadcrumb-item>陪玩</el-breadcrumb-item>
+                    </el-breadcrumb>
+                </div>
+                <!--主要内容-->
+                <div class="clear_fix">
+                    <!--left-->
+                    <person-center></person-center>
+                    <!--right-->
+                    <div class="my-wallet">
+                        <div class="font-personnal_title">
+                            我的钱包
+                        </div>
+                        <div class="sidebar-line"></div>
+                        <div class="pad_h30" style="padding-bottom: 30px;">
+                            <div class="pad_v30 clear_fix">
+                                <div class="f_left">
+                                    <p class="wallet-title_tips">您的余额为 <span class="wallet-remain_num">1330.00</span> 元</p>
+                                    <p class="wallet-cashing_tips">可提现金额<span class="wallet-cashing_num">1330.00</span>元&nbsp;不可提现金额<span class="wallet-cashing_num">30.00</span>元</p>
+                                </div>
+                                <div class="f_right mar_t20">
+                                    <a class="personnal-common_btn">提现</a>
+                                    <a class="personnal-common_btn mar_l30 personnal-btn_acitive">充值</a>
+                                </div>
+                            </div>
+                            <div class="sidebar-line"></div>
+                            <!--日期查询-->
+                            <div class="mar_t30 clear_fix">
+                                <el-date-picker
+                                        class="f_left"
+                                        v-model="test"
+                                        type="datetimerange"
+                                        start-placeholder="开始日期"
+                                        end-placeholder="结束日期"
+                                        :default-time="['12:00:00']">
+                                </el-date-picker>
+                                <a class="personnal-common_btn mar_l30 f_left">查询</a>
+                            </div>
+                            <!--消费明细列表-->
+                            <div class="mar_t20">
+                                <el-table
+                                        :data="tableData"
+                                        style="width: 100%">
+                                    <el-table-column
+                                            prop="date"
+                                            label="创建时间"
+                                            width="200">
+                                    </el-table-column>
+                                    <el-table-column
+                                            prop="name"
+                                            label="全部类型"
+                                            width="150">
+                                    </el-table-column>
+                                    <el-table-column
+                                            prop="address"
+                                            label="交易金额"
+                                            width="185">
+                                    </el-table-column>
+                                    <el-table-column
+                                            prop="address"
+                                            label="账户余额"
+                                            width="185">
+                                    </el-table-column>
+                                    <el-table-column
+                                            prop="address"
+                                            label="备注"
+                                            width="185">
+                                    </el-table-column>
+                                </el-table>
+                            </div>
+                            <!--分页-->
+                            <div class="mar_t20 text_right">
+                                <el-pagination
+                                        background
+                                        layout="jumper, prev, pager, next"
+                                        :total="1000">
+                                </el-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--底部导航-->
+        <foot-nav></foot-nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1107421_qifd4p7lx6d.css">
+    <title>个人资料</title>
+</head>
+<body>
+<div id="app">
+    <!--头部导航-->
+    <head-nav></head-nav>
+    <!--main content-->
+    <div class="user-content_wrap">
+        <div class="user-content">
+            <!--面包屑导航-->
+            <div class="pad_v15">
+                <el-breadcrumb separator-class="el-icon-arrow-right">
+                    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                    <el-breadcrumb-item>陪玩</el-breadcrumb-item>
+                </el-breadcrumb>
+            </div>
+            <!--主要内容-->
+            <div class="clear_fix">
+                <!--left-->
+                <person-center></person-center>
+                <!--right-->
+                <div class="component-box">
+                    <!--个人资料-->
+                    <div class="personal-data">
+                        <div class="font-personnal_title">
+                            个人资料
+                        </div>
+                        <div class="sidebar-line"></div>
+                        <el-form :model="formInline" ref="formInline" :rules="rules" label-width="80px">
+                            <div class="pad_h30">
+                                <!--头像-->
+                                <div class="pad_v20 clear_fix">
+                                    <div class="f_left">
+                                        <img class="img_circle" :src="img" alt="" style="width: 120px;height: 120px;">
+                                    </div>
+                                    <div class="f_left mar_l20" style="padding-top: 28px;">
+                                        <a class="personnal-common_btn"><input class="upload-file_ipt" @change="tirggerFile($event)" type="file">上传头像</a>
+                                        <p class="upload-txt">支持jpg、gif、png、或bmp格式的图片，文件必须小于1M</p>
+                                    </div>
+                                </div>
+                                <div class="sidebar-line"></div>
+                                <!--用户详细信息-->
+                                <div class="pad_v20">
+                                    <!--用户ID-->
+                                    <div>
+                                        <span class="personal-info_title">用户ID：</span>
+                                        <span class="personal-info_num">{{formInline.userID}}</span>
+                                    </div>
+                                    <!--邀请码-->
+                                    <div class="mar_t20">
+                                        <span class="personal-info_title">邀请码：</span>
+                                        <span class="personal-info_num">{{formInline.code}}</span>
+                                        <span class="font-copy_info" @click="copy()">复制</span>
+                                    </div>
+                                    <!--昵称-->
+                                    <div class="mar_t25">
+                                        <!-- <span class="personal-info_title">昵称：</span> -->
+                                        <el-form-item prop="name" label="昵称：">
+                                            <el-input v-model="formInline.name"></el-input>
+                                        </el-form-item>
+                                        <span class="personal-info_ext">最多10个字，两个数字或字母算1个字</span>
+                                    </div>
+                                    <!--QQ-->
+                                    <div class="mar_t25">
+                                        <!-- <span class="personal-info_title">昵称：</span> -->
+                                        <el-form-item name="qq" prop="qq" label="QQ：">
+                                            <el-input v-model="formInline.qq"></el-input>
+                                        </el-form-item>
+                                    </div>
+                                </div>
+                                <a class="personal-check_btn mar_t20" style="margin-left: 75px;">提交修改</a>
+                            </div>
+                        </el-form>
+                    </div>
+                    <!--账户安全-->
+                    <!-- <user-safety class="hide"></user-safety> -->
+                    <!--我的订单-->
+                    <!-- <user-order class="hide"></user-order> -->
+                    <!--订单详情-->
+                    <!-- <order-detail class="hide"></order-detail> -->
+                    <!--订单支付-->
+                    <!-- <order-check></order-check> -->
+                    <!--我的钱包-->
+                    <!-- <user-wallet class="hide"></user-wallet> -->
+                    <!--我的优惠券-->
+                    <!-- <user-coupon class="hide"></user-coupon> -->
+                    <!--我的关注-->
+                    <!-- <user-focus class="hide"></user-focus> -->
+<!--////////////////////分割线分割线分割线/////////////////////////////-->
+                    <!--陪玩资料-->
+                    <!-- <peiwan-data></peiwan-data> -->
+                    <!--服务管理-->
+                    <!-- <service-manage class="hide"></service-manage> -->
+                    <!--接单管理-->
+
+                    <!--邀请有礼-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部导航-->
+    <foot-nav></foot-nav>
+</div>
+</body>
+<!-- <style lang="less" scoped>
+    .el-form-item__label {
+            font-size: 16px;
+            padding-right: 10px;
+            &:before{
+                display: none;
+            }
+        }
+        .el-form-item{
+            width: 665px;
+            position: relative;
+        }
+        .mar_t25{
+            position: relative;
+            .personal-info_ext{
+                position: absolute;
+                left: 675px;
+                top: 0px;
+                line-height: 40px;
+            }
+        }
+        .el-input__inner:focus{
+            border-color: #C563FC;
+        }
+    </style> -->
+</html>

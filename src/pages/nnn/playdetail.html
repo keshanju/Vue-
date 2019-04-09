@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>陪玩详情页</title>
+</head>
+<body style="background-color: rgba(201, 201, 201, 1);">
+<div id="app">
+    <!--头部导航-->
+    <head-nav></head-nav>
+
+    <!--内容区content-->
+    <div class="content-play clear_fix" style="background-color: #eee;">
+        <!--left  陪玩师形象展示区-->
+        <div class="f_left preview-box">
+            <!--大图-->
+            <div class="show-img" @mouseenter="handleEnter" @mouseleave="handleLeave" @mousemove="handleMove">
+                <img :src="imgs[selected]" alt="" >
+                <div class="show-shadow" v-show="shadowIsShow" :style="shadowStyle"></div>
+                <div class="show-big_img" v-show="shadowIsShow">
+                    <img :src="imgs[selected]" alt="">
+                </div>
+            </div>
+            <!--小图-->
+            <div class="show-option_container">
+                <div class="show-thumbnail_container">
+                    <ul class="show-thumbnail_inner" :style="thumbnailObject">
+                        <li v-for="(src, key) in imgs" :key="key" class="thumbnail-warpper" @click="goTo(key)"><img v-bind:src="src" :class="{'selected-active':selected == key}" alt="图片无法加载"></li>
+                    </ul>
+                </div>
+                <el-button class="prev-btn show-btn" @click="goPrev" :disabled="selected == 0"><</el-button>
+                <el-button class="next-btn show-btn" @click="goNext" :disabled="selected == imgs.length - 1">></el-button>
+            </div>
+        </div>
+        <!--right 陪玩师个人详细信息-->
+        <div class="f_right" style="width: 810px;background-color: #fff;">
+            <!--私人信息-->
+            <div class="host-info">
+                <div class="clear_fix">
+                    <!--left-->
+                    <div class="f_left">
+                        <span>无敌吃货雄</span>
+                        <i>@</i>
+                        <span>在线</span>
+                    </div>
+                    <!--right-->
+                    <div class="f_right public_btn">
+                        <span>关注</span><span class="mar_h20">|</span><span>10000+</span>
+                    </div>
+                </div>
+                <div style="margin: 15px 0;">
+                    <i>性别</i>
+                    <span>23</span>
+                    <i>地区</i>
+                    <span>武汉</span>
+                </div>
+                <div class="clear_fix">
+                    <div class="f_left">兴趣爱好：<span>吃，就是吃，只有吃</span></div>
+                    <div class="f_right">
+                        <i>@</i>
+                        <span>分享</span>
+                    </div>
+                </div>
+            </div>
+            <!--技能信息+用户评价区-->
+            <div class="grid-w20_cell mar_t15">
+                <!--陪玩师信息-->
+                <div class="">
+                    <!--tab区-->
+                    <div class="clear_fix">
+                        <div class="f_left mar_r15 tab-item" :class="{'tab-item_active': hostGameIndex==0}"
+                             @click="changeHostGame(0)">英雄联盟
+                        </div>
+                        <div class="f_left tab-item" :class="{'tab-item_active': hostGameIndex==1}"
+                             @click="changeHostGame(1)">王者荣耀
+                        </div>
+                    </div>
+                    <!--tab对应显示-->
+                    <div class="mar_t15">
+                        <div v-show="hostGameIndex==0">
+                            <div class="clear_fix mar_b10">
+                                <!--left-->
+                                <div class="f_left">
+                                    <!--top-->
+                                    <div class="clear_fix">
+                                        <img src="./images/index/index_01.jpg" alt=""
+                                             style="width: 120px;height: 120px;" class="f_left">
+                                        <div class="f_left text_left mar_l10">
+                                            <p>英雄联盟</p>
+                                            <p>最强王者</p>
+                                            <p>进30天接单128次</p>
+                                        </div>
+                                    </div>
+                                    <!--bottom-->
+                                    <a class="mar_t5 public-green_btn f_left">
+                                        <i>voice</i>
+                                        <span>8s</span>
+                                        <span>点击试听</span>
+                                    </a>
+                                </div>
+                                <!--right-->
+                                <div class="f_right">
+                                    <div><span>99</span>元/小时</div>
+                                    <div class="public-blue_btn mar_t10">
+                                        下单约Ta
+                                    </div>
+                                </div>
+                            </div>
+                            <!--技能介绍-->
+                            <div class="line-double_dotted">
+                                <p>技能介绍</p>
+                                <p>我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼</p>
+                            </div>
+                        </div>
+                        <div class="" v-show="hostGameIndex==1">
+                            <div class="clear_fix mar_b10">
+                                <!--left-->
+                                <div class="f_left">
+                                    <!--top-->
+                                    <div class="clear_fix">
+                                        <img src="./images/index/index_01.jpg" alt=""
+                                             style="width: 120px;height: 120px;" class="f_left">
+                                        <div class="f_left text_left mar_l10">
+                                            <p>王者荣耀</p>
+                                            <p>无人能挡</p>
+                                            <p>进30天接单128次</p>
+                                        </div>
+                                    </div>
+                                    <!--bottom-->
+                                    <a class="mar_t5 public-green_btn f_left">
+                                        <i>voice</i>
+                                        <span>8s</span>
+                                        <span>点击试听</span>
+                                    </a>
+                                </div>
+                                <!--right-->
+                                <div class="f_right">
+                                    <div><span>66</span>元/小时</div>
+                                    <div class="public-blue_btn mar_t10">
+                                        下单约Ta
+                                    </div>
+                                </div>
+                            </div>
+                            <!--技能介绍-->
+                            <div class="line-double_dotted">
+                                <p>技能介绍</p>
+                                <p>我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼我玩英雄联盟很牛逼</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--用户评价-->
+                <div class="" style="margin-top: 15px;">
+                    <!--标签分类-->
+                    <div class="clear_fix">
+                        <div style="width: 70%;" class="f_left">
+                            <p>用户评价</p>
+                            <div style="background-color: #eee;" class="grid-w10_cell mar_t20">
+                                <p>Ta的标签</p>
+                                <ul class="clear_fix mar_t15">
+                                    <li class="tag-item">最强王者(<span>25</span>)</li>
+                                    <li class="tag-item">大野小英雄(<span>25</span>)</li>
+                                    <li class="tag-item">走位风骚(<span>25</span>)</li>
+                                    <li class="tag-item">辅助小能手(<span>25</span>)</li>
+                                    <li class="tag-item">大神(<span>25</span>)</li>
+                                    <li class="tag-item">大神最稳C位(<span>25</span>)</li>
+                                    <li class="tag-item">你为什么这么diao(<span>25</span>)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="f_right">
+                            <div class="clear_fix">
+                                <div class="f_left">9.0</div>
+                                <div class="f_left">
+                                    <p>⭐⭐⭐⭐⭐⭐</p>
+                                    <p>35人评价</p>
+                                </div>
+                            </div>
+                            <!--评价栏统计-->
+                            <div>
+                                <ul class="clear_fix">
+                                    <li class="f_left">五星</li>
+                                    <li class="f_left" style="width: 80px;height: 20px;background-color: yellow;"></li>
+                                    <li class="f_left">40%</li>
+                                </ul>
+                                <ul class="clear_fix">
+                                    <li class="f_left">四星</li>
+                                    <li class="f_left" style="width: 60px;height: 20px;background-color: yellow;"></li>
+                                    <li class="f_left">40%</li>
+                                </ul>
+                                <ul class="clear_fix">
+                                    <li class="f_left">三星</li>
+                                    <li class="f_left" style="width: 40px;height: 20px;background-color: yellow;"></li>
+                                    <li class="f_left">40%</li>
+                                </ul>
+                                <ul class="clear_fix">
+                                    <li class="f_left">二星</li>
+                                    <li class="f_left" style="width: 20px;height: 20px;background-color: yellow;"></li>
+                                    <li class="f_left">40%</li>
+                                </ul>
+                                <ul class="clear_fix">
+                                    <li class="f_left">一星</li>
+                                    <li class="f_left" style="width: 5px;height: 20px;background-color: yellow;"></li>
+                                    <li class="f_left">40%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--最新与热门-->
+                    <div class="mar_t20">
+                        <span class="" @click="changeComment(0)">最新</span>
+                        <span class="mar_h10">|</span>
+                        <span class="" @click="changeComment(1)">热门</span>
+                    </div>
+                    <!--评论文字详情-->
+                    <div class="mar_t10">
+                        <!--最新评论-->
+                        <ul v-show="commentIndex==0">
+                            <!--评论列表-->
+                            <li class="pingjia-item">
+                                <div class="f_left" style="width: 75%;">
+                                    <div class="clear_fix">
+                                        <div style="width: 50px;height: 50px;background-color: #eee;"
+                                             class="img_circle f_left">
+                                            <img src="./images/index/uploads.png" alt=""
+                                                 style="width: 50px;height: 50px;">
+                                        </div>
+                                        <div class="f_left mar_l20">
+                                            <p><span>宇智波yitaqi</span><span>⭐⭐⭐⭐⭐</span></p>
+                                            <p>2019-03-22 09:45</p>
+                                        </div>
+                                    </div>
+                                    <p class="mar_t20">你这么牛逼，你家里知道吗？</p>
+                                </div>
+                                <div class="f_right">
+                                    <span>20</span>赞同
+                                </div>
+                            </li>
+                        </ul>
+                        <!--热门评论-->
+                        <ul v-show="commentIndex==1">
+                            <!--评论列表-->
+                            <li class="pingjia-item">
+                                <div class="f_left" style="width: 75%;">
+                                    <div class="clear_fix">
+                                        <div style="width: 50px;height: 50px;background-color: #eee;"
+                                             class="img_circle f_left">
+                                            <img src="./images/index/uploads.png" alt=""
+                                                 style="width: 50px;height: 50px;">
+                                        </div>
+                                        <div class="f_left mar_l20">
+                                            <p><span>宇智波yitaqi</span><span>⭐⭐⭐⭐⭐</span></p>
+                                            <p>2019-03-22 09:45</p>
+                                        </div>
+                                    </div>
+                                    <p class="mar_t20">你这么牛逼，你家里知道吗？</p>
+                                </div>
+                                <div class="f_right">
+                                    <span>20</span>赞同
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--底部导航-->
+    <foot-nav></foot-nav>
+</div>
+</body>
+</html>

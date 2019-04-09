@@ -1,0 +1,441 @@
+@import "variables.less";
+@import "reset.less";
+@import "component.less";
+/**
+    圆角分类
+ */
+//  2像素圆角
+.box_radius2 {
+    background: @white;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+//  4像素圆角
+.box_radius4 {
+    background: @white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+//  6像素圆角
+.box_radius6 {
+    background: @white;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+//  8像素圆角
+.box_radius8 {
+    background: @white;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+//  6像素输入框
+.ipt_radius6 {
+    background: @white;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/**
+    盒子阴影
+ */
+.box-shadow_white {
+    background: #FFFFFF;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.10);
+}
+
+/**
+    位置函数，通过设定参数来动态改变元素间的距离
+ */
+
+.margin_fn(@t:0,@r:0,@b:0,@l:0) {
+    margin: @arguments;
+}
+
+.padding_fn(@t:0,@r:0,@b:0,@l:0) {
+    padding: @arguments;
+}
+
+/**
+    分割虚线
+ */
+.dotted_line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #525252;
+    margin: 15px auto;
+}
+
+/**
+    分割实线
+ */
+.solid_line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid @black;
+    margin: 10px auto;
+}
+
+/**
+    段落文字缩进
+ */
+.text_indent_2em {
+    text-indent: 2em;
+}
+
+.text_indent_3em {
+    text-indent: 3em;
+}
+
+/**
+    文字对齐
+*/
+.text_left {
+    text-align: left;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.text_center {
+    text-align: center;
+}
+
+/**
+    p标签文字内容行数限制，仅支持webkit内核的浏览器
+ */
+.line_limit_3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+//  按钮背景色
+.btn-bg_color {
+    background-color: #e04bfc;
+    background-image: -webkit-gradient(linear, right top, left top, from(#8e4cfc), to(#e04bfc));
+    background-image: -webkit-linear-gradient(right, #8e4cfc 0%, #e04bfc 100%);
+    background-image: -o-linear-gradient(right, #8e4cfc 0%, #e04bfc 100%);
+    background-image: linear-gradient(-90deg, #8e4cfc 0%, #e04bfc 100%);
+    background: -ms-linear-gradient(top, #8e4cfc, #e04bfc);
+    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#e04bfc, endColorStr=#8e4cfc);
+    -ms-filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#e04bfc, endColorStr=#8e4cfc);
+    border-radius: 15px;
+}
+
+//  按钮背景色
+.btn-bg_orange {
+    background-color: #ff667a;
+    background-image: -webkit-gradient(linear, left top, right top, from(#ff667a), to(#fe45a2));
+    background-image: -webkit-linear-gradient(left, #ff667a 0%, #fe45a2 100%);
+    background-image: -o-linear-gradient(left, #ff667a 0%, #fe45a2 100%);
+    background-image: linear-gradient(90deg, #ff667a 0%, #fe45a2 100%);
+    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#ff667a, endColorStr=#fe45a2);
+    -ms-filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#ff667a, endColorStr=#fe45a2);
+    border-radius: 14px;
+}
+
+
+//  公共按钮样式(主题颜色)
+.public_btn {
+    &:extend(.btn-bg_color);
+    padding: 10px 20px;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.public_btn:hover {
+    background-color: #e04bfc;
+    background-image: -webkit-gradient(linear, right top, left top, from(#e04bfc), to(#8e4cfc));
+    background-image: -webkit-linear-gradient(right, #e04bfc 0%, #8e4cfc 100%);
+    background-image: -o-linear-gradient(right, #e04bfc 0%, #8e4cfc 100%);
+    background-image: linear-gradient(-90deg, #e04bfc 0%, #8e4cfc 100%);
+    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#8e4cfc, endColorStr=#e04bfc);
+    -ms-filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#8e4cfc, endColorStr=#e04bfc);
+}
+
+//  橘红色按钮
+.public-orange_btn {
+    &:extend(.btn-bg_orange);
+    padding: 7px 14px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.public-orange_btn:hover {
+    background-color: #ff667a;
+    background-image: -webkit-gradient(linear, left top, right top, from(#fe45a2), to(#ff667a));
+    background-image: -webkit-linear-gradient(left, #fe45a2 0%, #ff667a 100%);
+    background-image: -o-linear-gradient(left, #fe45a2 0%, #ff667a 100%);
+    background-image: linear-gradient(90deg, #fe45a2 0%, #ff667a 100%);
+    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#fe45a2, endColorStr=#ff667a);
+    -ms-filter: progid:DXImageTransform.Microsoft.Gradient(gradientType='1', startColorStr=#fe45a2, endColorStr=#ff667a);
+}
+
+//  绿色按钮
+.public-green_btn {
+    border-radius: 6px;
+    background-color: green;
+    padding: 5px;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+//.public-green_btn:hover {
+//    background: @btn_bg_hover;
+//}
+
+//  蓝色按钮
+.public-blue_btn {
+    border-radius: 6px;
+    background-color: skyblue;
+    padding: 10px 30px;
+    color: #FFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+//.public-blue_btn:hover {
+//    background: @btn_bg_hover;
+//}
+
+//  弹出层按钮样式(主题颜色)
+.dialog_btn {
+    padding: 5px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: @font_normal;
+    color: @black;
+    border: 1px solid @btn_bg;
+    border-radius: 6px;
+    background: @btn_bg;
+    cursor: pointer;
+}
+
+//  透明底button
+.transparent_btn {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    padding: 4px 8px;
+    color: #777;
+}
+
+//  圆角按钮
+.round_btn {
+    background: #FFD33E;
+    border-radius: 100px;
+    font-size: 12px;
+    color: #423E31;
+    padding: 2px 8px;
+}
+
+//  白底黑边框button
+.round_white_btn {
+    background-color: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    border-radius: 100px;
+    padding: 4px 8px;
+    color: #423E31;
+}
+
+/**
+    输入框
+ */
+.public_ipt {
+    width: 220px;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    text-indent: 1em;
+    padding-right: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #DCDFE6;
+}
+
+//  小号输入框
+.public-small_ipt {
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #DCDFE6;
+}
+
+//  tab选中和hover样式
+.tab-item {
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    color: #000;
+}
+
+.tab-item:hover {
+    padding-bottom: 10px;
+    border-bottom: 2px solid @tab;
+    cursor: pointer;
+    color: @tab;
+}
+
+.tab-item_active {
+    padding-bottom: 10px;
+    border-bottom: 2px solid @tab;
+    cursor: pointer;
+    color: @tab;
+}
+
+
+/***********************  图片  *********/
+
+// 资讯图片填满父盒子样式
+.img_filter {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border: none;
+}
+
+//  图片、盒子圆形状
+.img_circle {
+    border-radius: 50%;
+}
+
+// 文字溢出隐藏
+.words_flow {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/***********************  CSS一般效果  *********/
+
+// 元素隐藏
+.hide {
+    display: none;
+}
+
+.visible {
+    visibility: visible;
+}
+
+// 元素显示
+.show {
+    display: block;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+//hover手型
+.cursor {
+    cursor: pointer !important;
+}
+
+.no_cursor {
+    cursor: none !important;
+}
+
+.default_cursor {
+    cursor: default !important;
+}
+
+//遮罩层
+.shadow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+[v-cloak] {
+    display: none !important;
+}
+
+/**
+   针对IE布局应用的公用类
+*/
+.f_left {
+    float: left;
+}
+
+.f_right {
+    float: right;
+}
+
+//  清楚浮动
+.clear_fix {
+    clear: both;
+}
+
+.clear_fix:after {
+    content: '';
+    height: 0;
+    display: block;
+    clear: both;
+}
+
+//  溢出高度部分让元素不显示
+.overflow {
+    overflow: hidden;
+}
+
+
+/**
+    自定义动画库
+ */
+
+//  动画
+@-webkit-keyframes spin {
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+@-webkit-keyframes up_down {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    50% {
+        -webkit-transform: translate3d(0, 8px, 0);
+        transform: translate3d(0, 8px, 0);
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+@keyframes up_down {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    50% {
+        -webkit-transform: translate3d(0, 8px, 0);
+        transform: translate3d(0, 8px, 0);
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>陪玩订单评价</title>
+</head>
+<body style="background-color: rgba(201, 201, 201, 1);">
+<div id="app">
+    <!--头部导航-->
+    <head-nav></head-nav>
+
+    <div class="content-play" style="background-color: #eee;">
+        <p>订单评价</p>
+        <p class="mar_t5">订单编号：<span>5954161543</span><span class="mar_l40">2019-01-25 17:23:49</span></p>
+        <div class="mar_t10">
+            <div class="clear_fix ">
+                <!--left-->
+                <div class="f_left text_center" style="width: 295px;background-color: #fff;padding:0 0 10px;box-sizing: border-box;">
+                    <img src="./images/index/index_01.jpg" alt="" style="width: 170px;height: 210px;" class="mar_t10">
+                    <p class="mar_t15">卡巴斯基的闪电</p>
+                    <p class="mar_t20">￥69</p>
+                    <p class="mar_t30">英雄联盟</p>
+                </div>
+                <!--right-->
+                <div class="f_right" style="width: 904px;background-color: #fff;padding: 10px 20px 16px 40px;box-sizing: border-box;">
+                    <div class="clear_fix mar_t40">
+                        <span class="f_left">商品评价：</span>
+                        <div class="f_left">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="clear_fix mar_t40">
+                        <span class="f_left">我的印象：</span>
+                        <div class="tag-item_buy tag-buy_active">水平专业</div>
+                        <div class="tag-item_buy">自带8倍镜</div>
+                        <div class="tag-item_buy">技术很diao</div>
+                        <div class="tag-item_buy">暴走老司机</div>
+                        <div class="tag-item_buy">自定义标签</div>
+                    </div>
+                    <p class="mar_t40">买家评价：</p>
+                    <el-input class="mar_t15" type="textarea" :autosize="{ minRows: 5, maxRows: 5}" placeholder="快把你的感受告诉大家吧~"v-model="giveComment">
+
+                    </el-input>
+                </div>
+            </div>
+            <div class="mar_t5 pad_v40" style="background-color: #fff;text-align: center;">
+                <a class="public-blue_btn">提交评价</a>
+                <label class="mar_l20" for="评价"><input type="checkbox">匿名评价</label>
+            </div>
+        </div>
+    </div>
+
+    <!--底部导航-->
+    <foot-nav></foot-nav>
+</div>
+</body>
+</html>

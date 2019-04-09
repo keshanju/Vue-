@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>陪玩提现</title>
+</head>
+<body  style="background-color: rgba(201, 201, 201, 1);">
+<div id="app">
+    <!--头部导航-->
+    <head-nav></head-nav>
+
+    <div class="content-play grid-w20_cell">
+        <div class="pad_v20">提现</div>
+        <div class="pad_v20">
+            <p><span>可提现金额：</span>￥<span>{{balance}}</span><span>有<b>{{canNotDraw}}</b>元不可提现</span><a>查看原因</a></p>
+        </div>
+        <el-form :inline="true" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="82px" :hide-required-asterisk="true" class="draw-ruleForm pad_v20">
+            <el-form-item label="提现金额：" prop="balance" class="draw-balance">
+                <el-input v-model="ruleForm.balance" :placeholder="'可提现' + canDrawBalance"></el-input>
+                <el-button :plain="true" @click="drawAll">全部提现</el-button>
+            </el-form-item>
+            <!--验证码-->
+            <el-form-item prop="verificationCode" class="verification-code">
+                <p>验证码将会发至账户<span>吃货一枚的熊</span>绑定的<span>手机号（138****5678）</span></p>
+                <el-input v-for="(value, index) in ruleForm.verificationCode" :key="index" :ref="'codeItem' + index" v-model="ruleForm.verificationCode[index]" maxlength="1" @input="codeInputChange(index)"></el-input>
+                <el-button :plain="true" @click="getVerifiy">获取验证码</el-button>
+            </el-form-item>
+        </el-form>
+        <div class="pad_v20">
+            <div><label for="account">提现账户：<input class="public_ipt" type="text" placeholder="请输入提箱账户，当前只支持支付宝账户"></label></div>
+            <p class="mar_t40">根据国家相关规定，提现需要提供实名认证信息，请在下方输入<b>提现账户的实名认证信息</b>，实名认证信息只会作为提现凭证。错误的信息可能会导致提现失败</p>
+            <div class="mar_t20">
+                <label for="name">姓名：<input class="public_ipt" type="text" placeholder="请输入提现账户绑定实名的姓名"></label>
+                <label for="card" class="mar_l40">身份证号：<input class="public_ipt" type="text" placeholder="请输入提现账户绑定实名的身份证"></label>
+            </div>
+        </div>
+        <!--准备提现-->
+        <div class="text_right pad_v20">
+            <p>提现金额：<span>1200.00</span>元</p>
+            <p>预计到账金额：<span>1200.00</span>元</p>
+            <p>当前手续费12.00元（1%）由3N平台承担</p>
+            <a class="public-blue_btn" @click="submit('ruleForm')">提现</a>
+        </div>
+    </div>
+
+    <!--底部导航-->
+    <foot-nav></foot-nav>
+</div>
+</body>
+</html>
