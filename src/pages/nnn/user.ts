@@ -1,7 +1,7 @@
 import "@/assets/less/nnn.less";
 import HeadNav from './components/HeadNav.vue';
 import FootNav from './components/FootNav.vue';
-import PersonCenter from './components/PersonalCenter.vue';
+import PersonalData from './components/userComponents/PersonalData.vue';
 import UserSafety from './components/userComponents/UserSafety.vue';
 import UserOrder from './components/userComponents/UserOrder.vue';
 import OrderDetail from './components/userComponents/OrderDetail.vue';
@@ -9,9 +9,9 @@ import OrderCheck from './components/userComponents/OrderCheck.vue';
 import UserWallet from './components/userComponents/UserWallet.vue';
 import UserFocus from './components/userComponents/UserFocus.vue';
 import UserCoupon from './components/userComponents/UserCoupon.vue';
-import {Breadcrumb, BreadcrumbItem, Message, Input, Form, FormItem} from 'element-ui';
 import PeiwanData from './components/userComponents/PeiwanData.vue';
 import ServiceManage from './components/userComponents/ServiceManage.vue';
+import {Breadcrumb, BreadcrumbItem, Message, Input, Form, FormItem} from 'element-ui';
 import "babel-polyfill";
 import {Component, Vue} from "vue-property-decorator";
 import Util from '@/ts/utils/Util';
@@ -61,7 +61,7 @@ var validateName = (rule, value, callback) => {
     components: {
         'head-nav': HeadNav,
         'foot-nav': FootNav,
-        'person-center': PersonCenter,
+        'personal-data': PersonalData,
         'user-safety': UserSafety,
         'user-order': UserOrder,
         'order-detail': OrderDetail,

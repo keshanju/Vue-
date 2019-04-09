@@ -25,80 +25,55 @@
             <!--主要内容-->
             <div class="clear_fix">
                 <!--left-->
-                <person-center></person-center>
+                <div class="sidebar">
+                    <!--个人中心-->
+                    <div class="mar_b25">
+                        <p class="font-sidebar_title">个人中心</p>
+                        <ul>
+                            <li class="font-sidebar_item font-sidebar_active"><i class="iconfont icongerenzhongxintubiao_zhuanqu_gerenziliao"></i><a href="/user">个人资料</a></li>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_zhanghuanquan"></i><a href="/accountsecurity">账户安全</a></li>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodedingdan"></i>我的订单</li>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodeqianbao"></i>我的钱包</li>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao_zhuanqu_wodeyouhuiquan"></i>我的优惠券</li>
+                            <li class="font-sidebar_item" style="margin-bottom: 0;"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodeguanzhu"></i>我的关注</li>
+                        </ul>
+                    </div>
+                    <!--分割线-->
+                    <div class="sidebar-line"></div>
+                    <!--陪玩管理-->
+                    <div class="mar_t25">
+                        <p class="font-sidebar_title">陪玩管理</p>
+                        <ul>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_gerenziliao"></i>陪玩资料</li>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao_zhuanqu_fuwuguanli"></i>服务管理</li>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao_zhuanqu_jiedanguanli"></i>接单管理</li>
+                            <li class="font-sidebar_item" style="margin-bottom: 1px;"><i class="iconfont icongerenzhongxintubiao_zhuanqu_yaoqingyouli"></i>邀请有礼</li>
+                        </ul>
+                    </div>
+                </div>
                 <!--right-->
                 <div class="component-box">
                     <!--个人资料-->
-                    <div class="personal-data">
-                        <div class="font-personnal_title">
-                            个人资料
-                        </div>
-                        <div class="sidebar-line"></div>
-                        <el-form :model="formInline" ref="formInline" :rules="rules" label-width="80px">
-                            <div class="pad_h30">
-                                <!--头像-->
-                                <div class="pad_v20 clear_fix">
-                                    <div class="f_left">
-                                        <img class="img_circle" :src="img" alt="" style="width: 120px;height: 120px;">
-                                    </div>
-                                    <div class="f_left mar_l20" style="padding-top: 28px;">
-                                        <a class="personnal-common_btn"><input class="upload-file_ipt" @change="tirggerFile($event)" type="file">上传头像</a>
-                                        <p class="upload-txt">支持jpg、gif、png、或bmp格式的图片，文件必须小于1M</p>
-                                    </div>
-                                </div>
-                                <div class="sidebar-line"></div>
-                                <!--用户详细信息-->
-                                <div class="pad_v20">
-                                    <!--用户ID-->
-                                    <div>
-                                        <span class="personal-info_title">用户ID：</span>
-                                        <span class="personal-info_num">{{formInline.userID}}</span>
-                                    </div>
-                                    <!--邀请码-->
-                                    <div class="mar_t20">
-                                        <span class="personal-info_title">邀请码：</span>
-                                        <span class="personal-info_num">{{formInline.code}}</span>
-                                        <span class="font-copy_info" @click="copy()">复制</span>
-                                    </div>
-                                    <!--昵称-->
-                                    <div class="mar_t25">
-                                        <!-- <span class="personal-info_title">昵称：</span> -->
-                                        <el-form-item prop="name" label="昵称：">
-                                            <el-input v-model="formInline.name"></el-input>
-                                        </el-form-item>
-                                        <span class="personal-info_ext">最多10个字，两个数字或字母算1个字</span>
-                                    </div>
-                                    <!--QQ-->
-                                    <div class="mar_t25">
-                                        <!-- <span class="personal-info_title">昵称：</span> -->
-                                        <el-form-item name="qq" prop="qq" label="QQ：">
-                                            <el-input v-model="formInline.qq"></el-input>
-                                        </el-form-item>
-                                    </div>
-                                </div>
-                                <a class="personal-check_btn mar_t20" style="margin-left: 75px;">提交修改</a>
-                            </div>
-                        </el-form>
-                    </div>
+                    <personal-data></personal-data>
                     <!--账户安全-->
-                    <!-- <user-safety class="hide"></user-safety> -->
+                     <user-safety class="hide"></user-safety>
                     <!--我的订单-->
-                    <!-- <user-order class="hide"></user-order> -->
+                     <user-order class="hide"></user-order>
                     <!--订单详情-->
-                    <!-- <order-detail class="hide"></order-detail> -->
+                     <order-detail class="hide"></order-detail>
                     <!--订单支付-->
-                    <!-- <order-check></order-check> -->
+                     <order-check class="hide"></order-check>
                     <!--我的钱包-->
-                    <!-- <user-wallet class="hide"></user-wallet> -->
+                     <user-wallet class="hide"></user-wallet>
                     <!--我的优惠券-->
-                    <!-- <user-coupon class="hide"></user-coupon> -->
+                     <user-coupon class="hide"></user-coupon>
                     <!--我的关注-->
-                    <!-- <user-focus class="hide"></user-focus> -->
+                     <user-focus class="hide"></user-focus>
 <!--////////////////////分割线分割线分割线/////////////////////////////-->
                     <!--陪玩资料-->
-                    <!-- <peiwan-data></peiwan-data> -->
+                     <peiwan-data class="hide"></peiwan-data>
                     <!--服务管理-->
-                    <!-- <service-manage class="hide"></service-manage> -->
+                     <service-manage class="hide"></service-manage>
                     <!--接单管理-->
 
                     <!--邀请有礼-->
@@ -111,29 +86,4 @@
     <foot-nav></foot-nav>
 </div>
 </body>
-<!-- <style lang="less" scoped>
-    .el-form-item__label {
-            font-size: 16px;
-            padding-right: 10px;
-            &:before{
-                display: none;
-            }
-        }
-        .el-form-item{
-            width: 665px;
-            position: relative;
-        }
-        .mar_t25{
-            position: relative;
-            .personal-info_ext{
-                position: absolute;
-                left: 675px;
-                top: 0px;
-                line-height: 40px;
-            }
-        }
-        .el-input__inner:focus{
-            border-color: #C563FC;
-        }
-    </style> -->
 </html>
