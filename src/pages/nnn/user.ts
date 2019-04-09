@@ -92,7 +92,7 @@ export default class User extends Vue {
     public test: string = "";
     // public router = new Routers();
     // 默认头像
-    public img: Object = require('./images/index/test-avatar.png');
+    // public img: Object = require('./images/index/test-avatar.png');
 
     public formInline: FormInline = new FormInline();
 
@@ -110,7 +110,7 @@ export default class User extends Vue {
     // 选择头像回调
     public tirggerFile(event) {
         this.formInline.img = event.target.files[0]
-        this.img = URL.createObjectURL(this.formInline.img)
+        // this.img = URL.createObjectURL(this.formInline.img)
     }
 
     // 复制邀请码
@@ -142,9 +142,6 @@ export default class User extends Vue {
         console.log(this.$router);
     }
 }
-
-
-
 new User(
     router
 ).$mount('#app');
