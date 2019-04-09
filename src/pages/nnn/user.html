@@ -38,10 +38,7 @@
                                 <i class="iconfont icongerenzhongxintubiao_zhuanqu_gerenziliao"></i>个人资料
                             </li>
                             <li class="font-sidebar_item">
-                                <!--<router-link to="/usersafety">-->
-                                    <!---->
-                                <!--</router-link>-->
-                                <i class="iconfont icongerenzhongxintubiao-zhuanqu_zhanghuanquan"></i>账户安全
+                                <i class="iconfont icongerenzhongxintubiao-zhuanqu_zhanghuanquan"></i><a @click="gotoUserSafety">账户安全</a>
                             </li>
                             <li class="font-sidebar_item">
                                 <!--<router-link to="/userorder">-->
@@ -69,8 +66,9 @@
                 </div>
                 <!--right-->
                 <div class="component-box">
+                    <!--<router-view></router-view>-->
                     <!--个人资料-->
-                    <personal-data></personal-data>
+                    <!--<personal-data></personal-data>-->
                     <!--&lt;!&ndash;账户安全&ndash;&gt;-->
                      <!--<user-safety class="hide"></user-safety>-->
                     <!--&lt;!&ndash;我的订单&ndash;&gt;-->

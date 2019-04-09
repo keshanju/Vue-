@@ -20,6 +20,9 @@ import {Component, Vue} from "vue-property-decorator";
 // import {Routers} from '@/ts/router/routers';
 import Util from '@/ts/utils/Util';
 import CheckUtil from '@/ts/utils/CheckUtil';
+import router from './router/routers';
+//
+// console.log(router);
 
 //  测试数据
 class FormInline {
@@ -120,6 +123,10 @@ export default class User extends Vue {
         }
     }
 
+    created(){
+        console.log(this.$data);
+    }
+
     mounted() {
 
     }
@@ -132,8 +139,12 @@ export default class User extends Vue {
     }
 
     public gotoUserSafety() {
-        this.$router.push("usersafety");
+        console.log(this.$router);
     }
 }
 
-new User().$mount('#app');
+
+
+new User(
+    router
+).$mount('#app');
