@@ -16,9 +16,12 @@ import ServiceManage from './components/userComponents/ServiceManage.vue';
 import {Breadcrumb, BreadcrumbItem, Message, Input, Form, FormItem} from 'element-ui';
 import "babel-polyfill";
 import {Component, Vue} from "vue-property-decorator";
+// import Routers from './router/routers';
+// import {Routers} from '@/ts/router/routers';
 import Util from '@/ts/utils/Util';
 import CheckUtil from '@/ts/utils/CheckUtil';
 
+//  测试数据
 class FormInline {
     public img: Object = null   //头像
     public name: string = ''    // 昵称
@@ -55,7 +58,7 @@ var validateName = (rule, value, callback) => {
             callback()
         }
     } else {
-       callback(new Error('请填写争取的昵称'))
+        callback(new Error('请填写争取的昵称'))
     }
 }
 
@@ -82,9 +85,9 @@ var validateName = (rule, value, callback) => {
         'el-form-item': FormItem
     }
 })
-class PersonalInfo extends Vue {
+export default class User extends Vue {
     public test: string = "";
-
+    // public router = new Routers();
     // 默认头像
     public img: Object = require('./images/index/test-avatar.png');
 
@@ -92,11 +95,11 @@ class PersonalInfo extends Vue {
 
     public rules: Object = {
         name: [
-            { required: true, message: '请填写昵称', trigger: 'blur' },
-            { validator: validateName, trigger: 'blur' }
+            {required: true, message: '请填写昵称', trigger: 'blur'},
+            {validator: validateName, trigger: 'blur'}
         ],
         qq: [
-            { validator: validateQQ, trigger: 'blur' }
+            {validator: validateQQ, trigger: 'blur'}
         ]
     }
 
@@ -116,9 +119,21 @@ class PersonalInfo extends Vue {
             Message.warning('复制成功')
         }
     }
-    
-    mounted () {
-        
+
+    mounted() {
+
+    }
+
+    /**
+     * 路由跳转
+     */
+    public PersonalData() {
+        this.$router.push("personaldata");
+    }
+
+    public gotoUserSafety() {
+        this.$router.push("usersafety");
     }
 }
-new PersonalInfo().$mount('#app');
+
+new User().$mount('#app');

@@ -19,7 +19,7 @@
             <!--面包屑导航-->
             <div class="pad_v15">
                 <el-breadcrumb separator-class="el-icon-arrow-right">
-                    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                    <el-breadcrumb-item>首页</el-breadcrumb-item>
                     <el-breadcrumb-item>陪玩</el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
@@ -31,9 +31,24 @@
                     <div class="mar_b25">
                         <p class="font-sidebar_title">个人中心</p>
                         <ul>
-                            <li class="font-sidebar_item font-sidebar_active"><i class="iconfont icongerenzhongxintubiao_zhuanqu_gerenziliao"></i><a>个人资料</a></li>
-                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_zhanghuanquan"></i><a>账户安全</a></li>
-                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodedingdan"></i>我的订单</li>
+                            <li class="font-sidebar_item font-sidebar_active">
+                                <!--<router-link to="/personaldata">-->
+                                    <!---->
+                                <!--</router-link>-->
+                                <i class="iconfont icongerenzhongxintubiao_zhuanqu_gerenziliao"></i>个人资料
+                            </li>
+                            <li class="font-sidebar_item">
+                                <!--<router-link to="/usersafety">-->
+                                    <!---->
+                                <!--</router-link>-->
+                                <i class="iconfont icongerenzhongxintubiao-zhuanqu_zhanghuanquan"></i>账户安全
+                            </li>
+                            <li class="font-sidebar_item">
+                                <!--<router-link to="/userorder">-->
+                                    <!---->
+                                <!--</router-link>-->
+                                <i class="iconfont icongerenzhongxintubiao-zhuanqu_wodedingdan"></i>我的订单
+                            </li>
                             <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodeqianbao"></i>我的钱包</li>
                             <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao_zhuanqu_wodeyouhuiquan"></i>我的优惠券</li>
                             <li class="font-sidebar_item" style="margin-bottom: 0;"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodeguanzhu"></i>我的关注</li>
@@ -55,30 +70,30 @@
                 <!--right-->
                 <div class="component-box">
                     <!--个人资料-->
-                    <personal-data class="hide"></personal-data>
-                    <!--账户安全-->
-                     <user-safety class="hide"></user-safety>
-                    <!--我的订单-->
-                     <user-order class="hide"></user-order>
-                    <!--订单详情-->
-                     <order-detail class="hide"></order-detail>
-                    <!--订单支付-->
-                     <order-check class="hide"></order-check>
-                    <!--我的钱包-->
-                     <user-wallet class="hide"></user-wallet>
-                    <!--我的优惠券-->
-                     <user-coupon class="hide"></user-coupon>
-                    <!--我的关注-->
-                     <user-focus class="hide"></user-focus>
-<!--////////////////////分割线分割线分割线/////////////////////////////-->
-                    <!--陪玩资料-->
-                     <peiwan-data class="hide"></peiwan-data>
-                    <!--服务管理-->
-                     <service-manage class="hide"></service-manage>
-                    <!--接单管理-->
-                    <order-manage></order-manage>
-                    <!--邀请有礼-->
-                    <user-invite class="hide"></user-invite>
+                    <personal-data></personal-data>
+                    <!--&lt;!&ndash;账户安全&ndash;&gt;-->
+                     <!--<user-safety class="hide"></user-safety>-->
+                    <!--&lt;!&ndash;我的订单&ndash;&gt;-->
+                     <!--<user-order class="hide"></user-order>-->
+                    <!--&lt;!&ndash;订单详情&ndash;&gt;-->
+                     <!--<order-detail class="hide"></order-detail>-->
+                    <!--&lt;!&ndash;订单支付&ndash;&gt;-->
+                     <!--<order-check class="hide"></order-check>-->
+                    <!--&lt;!&ndash;我的钱包&ndash;&gt;-->
+                     <!--<user-wallet class="hide"></user-wallet>-->
+                    <!--&lt;!&ndash;我的优惠券&ndash;&gt;-->
+                     <!--<user-coupon class="hide"></user-coupon>-->
+                    <!--&lt;!&ndash;我的关注&ndash;&gt;-->
+                     <!--<user-focus class="hide"></user-focus>-->
+<!--&lt;!&ndash;////////////////////分割线分割线分割线/////////////////////////////&ndash;&gt;-->
+                    <!--&lt;!&ndash;陪玩资料&ndash;&gt;-->
+                     <!--<peiwan-data class="hide"></peiwan-data>-->
+                    <!--&lt;!&ndash;服务管理&ndash;&gt;-->
+                     <!--<service-manage class="hide"></service-manage>-->
+                    <!--&lt;!&ndash;接单管理&ndash;&gt;-->
+                    <!--<order-manage></order-manage>-->
+                    <!--&lt;!&ndash;邀请有礼&ndash;&gt;-->
+                    <!--<user-invite class="hide"></user-invite>-->
                 </div>
             </div>
         </div>
