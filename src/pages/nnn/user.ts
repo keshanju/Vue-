@@ -6,9 +6,11 @@ import UserSafety from './components/userComponents/UserSafety.vue';
 import UserOrder from './components/userComponents/UserOrder.vue';
 import OrderDetail from './components/userComponents/OrderDetail.vue';
 import OrderCheck from './components/userComponents/OrderCheck.vue';
+import OrderManage from './components/userComponents/OrderManage.vue';
 import UserWallet from './components/userComponents/UserWallet.vue';
 import UserFocus from './components/userComponents/UserFocus.vue';
 import UserCoupon from './components/userComponents/UserCoupon.vue';
+import UserInvite from './components/userComponents/UserInvite.vue';
 import PeiwanData from './components/userComponents/PeiwanData.vue';
 import ServiceManage from './components/userComponents/ServiceManage.vue';
 import {Breadcrumb, BreadcrumbItem, Message, Input, Form, FormItem} from 'element-ui';
@@ -66,9 +68,11 @@ var validateName = (rule, value, callback) => {
         'user-order': UserOrder,
         'order-detail': OrderDetail,
         'order-check': OrderCheck,
+        'order-manage': OrderManage,
         'user-wallet': UserWallet,
         'user-focus': UserFocus,
         'user-coupon': UserCoupon,
+        'user-invite': UserInvite,
         'peiwan-data': PeiwanData,
         'service-manage': ServiceManage,
         'el-breadcrumb': Breadcrumb,

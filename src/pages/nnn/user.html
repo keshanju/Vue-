@@ -31,8 +31,8 @@
                     <div class="mar_b25">
                         <p class="font-sidebar_title">个人中心</p>
                         <ul>
-                            <li class="font-sidebar_item font-sidebar_active"><i class="iconfont icongerenzhongxintubiao_zhuanqu_gerenziliao"></i><a href="/user">个人资料</a></li>
-                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_zhanghuanquan"></i><a href="/accountsecurity">账户安全</a></li>
+                            <li class="font-sidebar_item font-sidebar_active"><i class="iconfont icongerenzhongxintubiao_zhuanqu_gerenziliao"></i><a>个人资料</a></li>
+                            <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_zhanghuanquan"></i><a>账户安全</a></li>
                             <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodedingdan"></i>我的订单</li>
                             <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao-zhuanqu_wodeqianbao"></i>我的钱包</li>
                             <li class="font-sidebar_item"><i class="iconfont icongerenzhongxintubiao_zhuanqu_wodeyouhuiquan"></i>我的优惠券</li>
@@ -55,7 +55,7 @@
                 <!--right-->
                 <div class="component-box">
                     <!--个人资料-->
-                    <personal-data></personal-data>
+                    <personal-data class="hide"></personal-data>
                     <!--账户安全-->
                      <user-safety class="hide"></user-safety>
                     <!--我的订单-->
@@ -76,8 +76,9 @@
                     <!--服务管理-->
                      <service-manage class="hide"></service-manage>
                     <!--接单管理-->
-
+                    <order-manage></order-manage>
                     <!--邀请有礼-->
+                    <user-invite class="hide"></user-invite>
                 </div>
             </div>
         </div>
