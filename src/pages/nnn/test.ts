@@ -1,14 +1,22 @@
 
 import {Component, Vue} from "vue-property-decorator";
-import router from './router/routers';
-
-
+import router from './router/router';
+console.log(router);
+Vue.config.productionTip = false;
 @Component
-export class tset extends Vue{
+export class Test extends Vue {
     public haha:string = "我是测试内容！";
+
+    public mounted() {
+
+    }
+
+    public created() {
+
+    }
 }
-
-
-new tset(router).$mount("#app");
+new Test({
+   router
+}).$mount("#app");
 
 // new Vue(router).$mount("#app");

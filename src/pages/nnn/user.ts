@@ -16,13 +16,10 @@ import ServiceManage from './components/userComponents/ServiceManage.vue';
 import {Breadcrumb, BreadcrumbItem, Message, Input, Form, FormItem} from 'element-ui';
 import "babel-polyfill";
 import {Component, Vue} from "vue-property-decorator";
-// import Routers from './router/routers';
-// import {Routers} from '@/ts/router/routers';
 import Util from '@/ts/utils/Util';
 import CheckUtil from '@/ts/utils/CheckUtil';
-import router from './router/routers';
+import router from './router/router';
 //
-// console.log(router);
 
 //  测试数据
 class FormInline {
@@ -135,11 +132,11 @@ export default class User extends Vue {
      * 路由跳转
      */
     public PersonalData() {
-        this.$router.push("personaldata");
+
     }
 
     public gotoUserSafety() {
-        console.log(this.$router);
+
     }
 }
 new User(
