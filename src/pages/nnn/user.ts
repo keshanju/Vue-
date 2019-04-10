@@ -16,51 +16,7 @@ import ServiceManage from './components/userComponents/ServiceManage.vue';
 import {Breadcrumb, BreadcrumbItem, Message, Input, Form, FormItem} from 'element-ui';
 import "babel-polyfill";
 import {Component, Vue} from "vue-property-decorator";
-import Util from '@/ts/utils/Util';
-import CheckUtil from '@/ts/utils/CheckUtil';
 import router from './router/router';
-//
-
-//  测试数据
-class FormInline {
-    public img: Object = null   //头像
-    public name: string = ''    // 昵称
-    public qq: string = ''  // qq号
-    public userID: string = '234'  // 用户ID
-    public code: string = '123'    // 邀请码
-}
-
-// 验证QQ
-var validateQQ = (rule, value, callback) => {
-    if (!value) {
-        callback()
-    } else if (CheckUtil.checkqq(value)) {
-        callback()
-    } else {
-        return callback(new Error('请输入正确的QQ号'))
-    }
-}
-
-// 验证用户名
-var validateName = (rule, value, callback) => {
-    let reg = /[\u4e00-\u9fa5]/g    //匹配中文
-    let reg2 = /[a-zA-Z0-9]/g  //  匹配英文
-    let reg3 = /^[\u4e00-\u9fa5_a-zA-Z0-9]+$/   // 匹配中文和英文
-
-    if (reg3.test(value)) {
-        // 验证字符长度
-        let num1 = value.match(reg) ? value.match(reg).length * 2 : 0
-        let num2 = value.match(reg2) ? value.match(reg2).length : 0
-        let sum = num1 + num2
-        if (sum > 20) {
-            callback(new Error('输入超出限制'))
-        } else {
-            callback()
-        }
-    } else {
-        callback(new Error('请填写争取的昵称'))
-    }
-}
 
 @Component({
     components: {
@@ -86,44 +42,30 @@ var validateName = (rule, value, callback) => {
     }
 })
 export default class User extends Vue {
-    public test: string = "";
+    public test: string = "我是测试数据";
     public sidebar_index:number = 0;    //侧边栏索引
-    // public router = new Routers();
-    // 默认头像
-    // public img: Object = require('./images/index/test-avatar.png');
 
-    public formInline: FormInline = new FormInline();
+    created () {
 
-    /**
-     *
-     */
-    public rules: Object = {
-        name: [
-            {required: true, message: '请填写昵称', trigger: 'blur'},
-            {validator: validateName, trigger: 'blur'}
-        ],
-        qq: [
-            {validator: validateQQ, trigger: 'blur'}
-        ]
-    };
+    }
+
+    mounted () {
+        console.log(this.$data);
+        console.log(this.$children);
+        console.log(this.$router);
+    }
 
     /**
      * 选择头像回调
      * @param event
      */
-    public tirggerFile(event) {
-        this.formInline.img = event.target.files[0]
-        // this.img = URL.createObjectURL(this.formInline.img)
+    public tirggerFile (event) {
+
     }
 
     // 复制邀请码
-    public copy() {
-        let bol = Util.copyToClipboard(this.formInline.code)
-        if (bol) {
-            Message.success('复制成功')
-        } else {
-            Message.warning('复制成功')
-        }
+    public copy () {
+
     }
 
     /**

@@ -8,7 +8,7 @@ const About = {template: '<div>about</div>'};
 const constantRouterMap = [
     {
         path: '/',
-        redirect: 'usercenter'
+        redirect: 'personaldata'
     },
     {
         path: '/home',
@@ -55,6 +55,7 @@ const constantRouterMap = [
 let routes: any = constantRouterMap;
 
 let router = new VueRouter({
+    mode: 'history',
     routes
 });
 export default router
