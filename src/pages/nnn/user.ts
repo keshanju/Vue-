@@ -87,12 +87,16 @@ var validateName = (rule, value, callback) => {
 })
 export default class User extends Vue {
     public test: string = "";
+    public sidebar_index:number = 0;    //侧边栏索引
     // public router = new Routers();
     // 默认头像
     // public img: Object = require('./images/index/test-avatar.png');
 
     public formInline: FormInline = new FormInline();
 
+    /**
+     *
+     */
     public rules: Object = {
         name: [
             {required: true, message: '请填写昵称', trigger: 'blur'},
@@ -101,10 +105,12 @@ export default class User extends Vue {
         qq: [
             {validator: validateQQ, trigger: 'blur'}
         ]
-    }
+    };
 
-
-    // 选择头像回调
+    /**
+     * 选择头像回调
+     * @param event
+     */
     public tirggerFile(event) {
         this.formInline.img = event.target.files[0]
         // this.img = URL.createObjectURL(this.formInline.img)
@@ -120,25 +126,11 @@ export default class User extends Vue {
         }
     }
 
-    created(){
-        console.log(this.$data);
-    }
-
-    mounted() {
-
-    }
-
     /**
-     * 路由跳转
+     * 点击侧边栏
      */
-    public PersonalData() {
-
-    }
-
-    public gotoUserSafety() {
-
+    public clickSideBar(index: number) {
+        this.sidebar_index = index;
     }
 }
-new User(
-    router
-).$mount('#app');
+new User({router}).$mount('#app');
