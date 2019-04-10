@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 // 1. 定义（路由）组件。
 const Home = {template: '<div>home</div>'};
 const About = {template: '<div>about</div>'};
-export const constantRouterMap = [
+const constantRouterMap = [
     {
         path: '/',
         redirect: 'usercenter'
