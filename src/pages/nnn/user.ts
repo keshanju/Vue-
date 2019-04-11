@@ -1,7 +1,6 @@
 import "@/assets/less/nnn.less";
 import HeadNav from './components/HeadNav.vue';
 import FootNav from './components/FootNav.vue';
-import UserContent from './components/UserContent.vue';
 import {Breadcrumb, BreadcrumbItem, Input, Form, FormItem} from 'element-ui';
 import "babel-polyfill";
 import {Component, Vue} from "vue-property-decorator";
@@ -10,7 +9,6 @@ import router from './router/router';
     components: {
         'head-nav': HeadNav,
         'foot-nav': FootNav,
-        'user-content': UserContent,
         'el-breadcrumb': Breadcrumb,
         'el-breadcrumb-item': BreadcrumbItem,
         'el-input': Input,

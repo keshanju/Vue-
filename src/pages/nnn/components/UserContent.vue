@@ -50,17 +50,17 @@
             <div class="mar_t25">
                 <p class="font-sidebar_title">陪玩管理</p>
                 <ul>
-                    <li class="font-sidebar_item"><i
-                            class="iconfont icongerenzhongxintubiao-zhuanqu_gerenziliao"></i>陪玩资料
+                    <li class="font-sidebar_item">
+                        <i class="iconfont icongerenzhongxintubiao-zhuanqu_gerenziliao"></i>陪玩资料
                     </li>
-                    <li class="font-sidebar_item"><i
-                            class="iconfont icongerenzhongxintubiao_zhuanqu_fuwuguanli"></i>服务管理
+                    <li class="font-sidebar_item">
+                        <i class="iconfont icongerenzhongxintubiao_zhuanqu_fuwuguanli"></i>服务管理
                     </li>
-                    <li class="font-sidebar_item"><i
-                            class="iconfont icongerenzhongxintubiao_zhuanqu_jiedanguanli"></i>接单管理
+                    <li class="font-sidebar_item">
+                        <i class="iconfont icongerenzhongxintubiao_zhuanqu_jiedanguanli"></i>接单管理
                     </li>
-                    <li class="font-sidebar_item" style="margin-bottom: 1px;"><i
-                            class="iconfont icongerenzhongxintubiao_zhuanqu_yaoqingyouli"></i>邀请有礼
+                    <li class="font-sidebar_item" style="margin-bottom: 1px;">
+                        <i class="iconfont icongerenzhongxintubiao_zhuanqu_yaoqingyouli"></i>邀请有礼
                     </li>
                 </ul>
             </div>
@@ -74,7 +74,6 @@
 
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
-
     @Component({
         components: {}
     })
@@ -92,4 +91,5 @@
             this.sidebar_index = index;
         }
     }
+
 </script>
