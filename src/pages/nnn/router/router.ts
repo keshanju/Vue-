@@ -15,6 +15,14 @@ const constantRouterMap = [
         component: About
     },
     {
+        path: '/',
+        redirect: '/user/personaldata'
+    },
+    {
+        path: '/user.html',
+        redirect: '/user/personaldata'
+    },
+    {
         path: '/user',
         component: () => import('../components/UserContent.vue'),
         redirect: '/user/personaldata',
@@ -44,10 +52,6 @@ const constantRouterMap = [
                 component: () => import('../components/userComponents/UserWallet.vue')
             },
         ]
-    },
-    {
-        path: '/user.html',
-        redirect: '/user.html/personaldata'
     },
     {
         path: '/user.html/personaldata',
