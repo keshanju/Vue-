@@ -16,7 +16,7 @@ const constantRouterMap = [
     },
     {
         path: '/user',
-        component: () => import('../components/userComponents/UserContent.vue'),
+        component: () => import('../components/UserContent.vue'),
         redirect: '/user/personaldata',
         children: [
             {

@@ -65,56 +65,31 @@
                 </ul>
             </div>
         </div>
-
         <!--right-->
         <div class="component-box">
-            <router-view/>
+            <router-view></router-view>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
-import PersonalData from './PersonalData.vue';
-import UserSafety from './UserSafety.vue';
-import UserOrder from './UserOrder.vue';
-import OrderDetail from './OrderDetail.vue';
-import OrderCheck from './OrderCheck.vue';
-import OrderManage from './OrderManage.vue';
-import UserWallet from './UserWallet.vue';
-import UserFocus from './UserFocus.vue';
-import UserCoupon from './UserCoupon.vue';
-import UserInvite from './UserInvite.vue';
-import PeiwanData from './PeiwanData.vue';
-import ServiceManage from './ServiceManage.vue';
-@Component({
-    components: {
-        'personal-data': PersonalData,
-        'user-safety': UserSafety,
-        'user-order': UserOrder,
-        'order-detail': OrderDetail,
-        'order-check': OrderCheck,
-        'order-manage': OrderManage,
-        'user-wallet': UserWallet,
-        'user-focus': UserFocus,
-        'user-coupon': UserCoupon,
-        'user-invite': UserInvite,
-        'peiwan-data': PeiwanData,
-        'service-manage': ServiceManage,
-    }
-})
-export default class UserContent extends Vue {
-    public sidebar_index:number = 0;    //侧边栏索引
+    import {Component, Vue} from "vue-property-decorator";
 
-    public created() {
+    @Component({
+        components: {}
+    })
+    export default class UserContent extends Vue {
+        public sidebar_index: number = 0;    //侧边栏索引
 
-    }
+        public created() {
 
-    /**
-     * 点击侧边栏
-     */
-    public clickSideBar(index: number) {
-        this.sidebar_index = index;
+        }
+
+        /**
+         * 点击侧边栏
+         */
+        public clickSideBar(index: number) {
+            this.sidebar_index = index;
+        }
     }
-}
 </script>

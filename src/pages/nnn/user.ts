@@ -1,7 +1,7 @@
 import "@/assets/less/nnn.less";
 import HeadNav from './components/HeadNav.vue';
 import FootNav from './components/FootNav.vue';
-import UserContent from './components/userComponents/UserContent.vue';
+import UserContent from './components/UserContent.vue';
 import {Breadcrumb, BreadcrumbItem, Input, Form, FormItem} from 'element-ui';
 import "babel-polyfill";
 import {Component, Vue} from "vue-property-decorator";
