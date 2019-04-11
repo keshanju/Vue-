@@ -7,49 +7,73 @@ const Home = {template: '<div>home</div>'};
 const About = {template: '<div>about</div>'};
 const constantRouterMap = [
     {
-        path: '/',
-        redirect: 'personaldata'
-    },
-    {
         path: '/home',
-        name: Home,
         component: Home
     },
     {
         path: '/about',
-        name: About,
         component: About
     },
     {
-        path: '/personaldata',
-        name: 'PersonalData',
+        path: '/user',
+        component: () => import('../components/userComponents/UserContent.vue'),
+        redirect: '/user/personaldata',
+        children: [
+            {
+                path: 'personaldata',
+                component: () => import('../components/userComponents/PersonalData.vue')
+            },
+            {
+                path: 'usersafety',
+                component: () => import('../components/userComponents/UserSafety.vue')
+            },
+            {
+                path: 'userorder',
+                component: () => import('../components/userComponents/UserOrder.vue')
+            },
+            {
+                path: 'usercoupon',
+                component: () => import('../components/userComponents/UserCoupon.vue')
+            },
+            {
+                path: 'userfocus',
+                component: () => import('../components/userComponents/UserFocus.vue')
+            },
+            {
+                path: 'userwallet',
+                component: () => import('../components/userComponents/UserWallet.vue')
+            },
+        ]
+    },
+    {
+        path: '/user.html',
+        redirect: '/user.html/personaldata'
+    },
+    {
+        path: '/user.html/personaldata',
         component: () => import('../components/userComponents/PersonalData.vue')
     },
     {
-        path: '/usersafety',
-        name: 'UserSafety',
+        path: '/user.html/usersafety',
         component: () => import('../components/userComponents/UserSafety.vue')
     },
     {
-        path: '/userorder',
-        name: 'UserOrder',
+        path: '/user.html/userorder',
         component: () => import('../components/userComponents/UserOrder.vue')
     },
     {
-        path: '/usercoupon',
-        name: 'UserCoupon',
+        path: '/user.html/usercoupon',
         component: () => import('../components/userComponents/UserCoupon.vue')
     },
     {
-        path: '/userfocus',
-        name: 'UserFocus',
+        path: '/user.html/userfocus',
         component: () => import('../components/userComponents/UserFocus.vue')
     },
     {
-        path: '/userwallet',
-        name: 'UserWallet',
+        path: '/user.html/userwallet',
         component: () => import('../components/userComponents/UserWallet.vue')
     },
+
 ];
 
 let routes: any = constantRouterMap;
