@@ -51,6 +51,22 @@ const constantRouterMap = [
                 path: 'userwallet',
                 component: () => import('../components/userComponents/UserWallet.vue')
             },
+            {
+                path: 'peiwandata',
+                component: () => import('../components/userComponents/PeiwanData.vue')
+            },
+            {
+                path: 'servicemanage',
+                component: () => import('../components/userComponents/ServiceManage.vue')
+            },
+            {
+                path: 'ordermanage',
+                component: () => import('../components/userComponents/OrderManage.vue')
+            },
+            {
+                path: 'userinvite',
+                component: () => import('../components/userComponents/UserInvite.vue')
+            },
         ]
     },
     {

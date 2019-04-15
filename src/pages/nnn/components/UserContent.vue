@@ -50,17 +50,29 @@
             <div class="mar_t25">
                 <p class="font-sidebar_title">陪玩管理</p>
                 <ul>
-                    <li class="font-sidebar_item">
-                        <i class="iconfont icongerenzhongxintubiao-zhuanqu_gerenziliao"></i>陪玩资料
+                    <li class="font-sidebar_item" @click="clickSideBar(6)"
+                        :class="{'font-sidebar_active': sidebar_index==6}">
+                        <router-link to="peiwandata">
+                            <i class="iconfont icongerenzhongxintubiao-zhuanqu_gerenziliao"></i>陪玩资料
+                        </router-link>
                     </li>
-                    <li class="font-sidebar_item">
-                        <i class="iconfont icongerenzhongxintubiao_zhuanqu_fuwuguanli"></i>服务管理
+                    <li class="font-sidebar_item" @click="clickSideBar(7)"
+                        :class="{'font-sidebar_active': sidebar_index==7}">
+                        <router-link to="servicemanage">
+                            <i class="iconfont icongerenzhongxintubiao_zhuanqu_fuwuguanli"></i>服务管理
+                        </router-link>
                     </li>
-                    <li class="font-sidebar_item">
-                        <i class="iconfont icongerenzhongxintubiao_zhuanqu_jiedanguanli"></i>接单管理
+                    <li class="font-sidebar_item" @click="clickSideBar(8)"
+                        :class="{'font-sidebar_active': sidebar_index==8}">
+                        <router-link to="ordermanage">
+                            <i class="iconfont icongerenzhongxintubiao_zhuanqu_jiedanguanli"></i>接单管理
+                        </router-link>
                     </li>
-                    <li class="font-sidebar_item" style="margin-bottom: 1px;">
-                        <i class="iconfont icongerenzhongxintubiao_zhuanqu_yaoqingyouli"></i>邀请有礼
+                    <li class="font-sidebar_item" @click="clickSideBar(9)"
+                        :class="{'font-sidebar_active': sidebar_index==9}" style="margin-bottom: 1px;">
+                        <router-link to="userinvite">
+                            <i class="iconfont icongerenzhongxintubiao_zhuanqu_yaoqingyouli"></i>邀请有礼
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -81,7 +93,8 @@
         public sidebar_index: number = 0;    //侧边栏索引
 
         public created() {
-
+            console.log(this.$router)
+            console.log(this.$route)
         }
 
         /**
